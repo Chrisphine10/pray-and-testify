@@ -11,7 +11,6 @@ class PostsController < ApplicationController
   
 	def create
 	  @post = Post.new(post_params)
-	  #@post = current_user.posts.build(post_params)
 	  @post.user_id = current_user.id
   
 	  respond_to do |format|
@@ -42,7 +41,7 @@ class PostsController < ApplicationController
 	def destroy
 	  @post.destroy
 	  respond_to do |format|
-		format.html { redirect_to testimonies_url, notice: 'removed successfully.' }
+		format.html { redirect_to @post, notice: 'removed successfully.' }
 	  end
 	end
 	private

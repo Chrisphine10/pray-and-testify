@@ -1,5 +1,5 @@
 class TestimoniesController < ApplicationController
-  before_action :authenticate_member!
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :set_testimony, only: [:show, :edit, :update, :destroy]
 
   # GET /testimonies
@@ -25,7 +25,11 @@ class TestimoniesController < ApplicationController
   # POST /testimonies
   # POST /testimonies.json
   def create
-    @testimony = Testimony.new(testimony_params)
+	#@post = Post.find(params[:id])
+	@testimony = Testimony.new(testimony_params)
+	#@testimony.post_id = @post.id
+	@testimony.post_id = 1
+	@testimony.user_id = current_user.id
 
     respond_to do |format|
       if @testimony.save
