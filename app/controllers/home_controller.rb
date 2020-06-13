@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-	@prayers = new_prayer_path
+	@posts = new_post_path
   end
 end
