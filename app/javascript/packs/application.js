@@ -21,6 +21,7 @@ require("channels")
     * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-agency/blob/master/LICENSE)
     */
 
+   import "@fortawesome/fontawesome-free/js/all";
    
 (function ($) {
     "use strict"; // Start of use strict
@@ -57,7 +58,7 @@ require("channels")
     // Activate scrollspy to add active class to navbar items on scroll
     $("body").scrollspy({
         target: "#mainNav",
-        offset: 74,
+        offset: 75,
     });
 
     // Collapse Navbar

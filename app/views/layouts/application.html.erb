@@ -13,6 +13,8 @@
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<!-- Core theme CSS (includes Bootstrap)-->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,19 +33,19 @@
     <!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+		 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ml-auto">
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#services">Prayer</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#portfolio">Testimony</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#about">Blog</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team">Team</a></li>
-					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="#contact">Contact</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#services">Testimony</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#portfolio">Blog</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#about">Devotion</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#team">Team</a></li>
+					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#contact">Contact</a></li>
 			<% if current_user %>
 				<!-- Navigation -->
 					<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" id="pagesDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-					
+					<a class="nav-link js-scroll-trigger nav-link dropdown-toggle" id="pagesDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+					 <%= current_user.name %>
 					</a>
 					<div class="dropdown-positioner">
 						<div class="dropdown-menu dropdown-left-manual" role="menu" aria-labelledby="pagesDropdown">
@@ -54,8 +56,8 @@
 							</p>
 
 							<!-- Links -->
-							<%= link_to " My profile", edit_user_registration_path, class: "p-2 fa fa-user dropdown-item" %>
-							<%= link_to " Logout", destroy_user_session_path, :method => :delete, class: "p-2 fa fa-power-off dropdown-item" %>
+							<%= link_to "My Account                          ", edit_user_registration_path, class: "fa fa-user dropdown-item" %>
+							<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "fa fa-power-off dropdown-item" %>
 		
 			
 						</div>
@@ -73,16 +75,16 @@
 <% if current_page?('/') %>
 	<%= yield %>
 	<% else %>
-
-	<div class="container mt-5 mb-5">
+<div class="mastbg align-content-center p-5">
+<div class="container">
 		<div class="card">
-		<div class="card-header">User Dashboard</div>
-		<div class="card-body">
-		
-<%= yield %>
-		</div>
+			<div class="card-header">User Dashboard</div>
+			<div class="card-body">
+				<%= yield %>
+			</div>
 		</div>
 	</div>
+</div>
     <% end%>
 <!-- Contact-->
 <section class="page-section" id="contact">
@@ -142,8 +144,6 @@
         <!-- Contact form JS-->
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
-        <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
 </body>
 
 </html>

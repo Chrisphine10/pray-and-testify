@@ -1,4 +1,4 @@
-<%= form_with(model: testimony, local: true) do |form| %>
+<%= form_with(model: [@post, testimony], local: true) do |form| %>
   <% if testimony.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(testimony.errors.count, "error") %> prohibited this testimony from being saved:</h2>
@@ -15,7 +15,7 @@
     <%= form.label :content %>
     <%= form.text_area :content %>
   </div>
-
+<%= form.text_area :post_id, :value => @post.id, hidden: true %>
   <div class="actions">
     <%= form.submit %>
   </div>

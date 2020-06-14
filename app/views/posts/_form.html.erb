@@ -1,15 +1,18 @@
 <%= form_with(model: post, local: true) do |form| %>
-
+	<div class="text-center">
+			<h3 class="section-subheading text-muted">Enter the prayer below</h3>
+		</div>
  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_area :title %>
+    <%= form.label :title%>
+    <%= form.text_field :title, required: true, class: "form-control"  %>
   </div>
   <div class="field">
-    <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.label :prayer %>
+    <%= form.text_area :content, required: true, class: "form-control", style: "height: 200px;"  %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+  <div class="modal-footer">
+			<button type="button" class="justify-content-between btn btn-danger" data-dismiss="modal">Cancel</button>
+			<%= submit_tag "Submit Prayer", name: nil, class: "btn btn-success" %>
+		</div>
 <% end %>
