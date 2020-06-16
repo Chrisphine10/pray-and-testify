@@ -8,7 +8,7 @@
 	<meta name="author" content="Chrisphine" />
 	<link rel="icon" href="<%= image_path('favicon.ico') %>" type="image/x-icon" />
 	<!-- Font Awesome icons (free version)-->
-	<script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
 	<!-- Google fonts-->
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
@@ -21,6 +21,75 @@
     <%= csrf_meta_tags %>
 	<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+	<script>
+	
+/*!
+    * Start Bootstrap - Creative v6.0.2 (https://startbootstrap.com/themes/creative)
+    * Copyright 2013-2020 Start Bootstrap
+    * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-creative/blob/master/LICENSE)
+    */
+   (function($) {
+	"use strict"; // Start of use strict
+  
+	// Smooth scrolling using jQuery easing
+	$('a.js-scroll-trigger[href*="#"]:not([href="#"])').click(function() {
+	  if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') && location.hostname == this.hostname) {
+		var target = $(this.hash);
+		target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+		if (target.length) {
+		  $('html, body').animate({
+			scrollTop: (target.offset().top - 72)
+		  }, 1000, "easeInOutExpo");
+		  return false;
+		}
+	  }
+	});
+  
+	// Closes responsive menu when a scroll trigger link is clicked
+	$('.js-scroll-trigger').click(function() {
+	  $('.navbar-collapse').collapse('hide');
+	});
+  
+	// Activate scrollspy to add active class to navbar items on scroll
+	$('body').scrollspy({
+	  target: '#mainNav',
+	  offset: 75
+	});
+  
+	// Collapse Navbar
+	var navbarCollapse = function() {
+	  if ($("#mainNav").offset().top > 100) {
+		$("#mainNav").addClass("navbar-scrolled");
+	  } else {
+		$("#mainNav").removeClass("navbar-scrolled");
+	  }
+	};
+	// Collapse now if page is not at top
+	navbarCollapse();
+	// Collapse the navbar when page is scrolled
+	$(window).scroll(navbarCollapse);
+  
+	// Magnific popup calls
+	$('#portfolio').magnificPopup({
+	  delegate: 'a',
+	  type: 'image',
+	  tLoading: 'Loading image #%curr%...',
+	  mainClass: 'mfp-img-mobile',
+	  gallery: {
+		enabled: true,
+		navigateByImgClick: true,
+		preload: [0, 1]
+	  },
+	  image: {
+		tError: '<a href="%url%">The image #%curr%</a> could not be loaded.'
+	  }
+	});
+  
+  })(jQuery); // End of use strict
+  
+
+
+	</script>
 </head>
   <body id="page-top">
   <% if notice %>
@@ -31,9 +100,9 @@
     <% end %>
 
     <!-- Navigation-->
-	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+	<nav class="navbar navbar-expand-lg navbar-dark fixed-top py-3" id="mainNav">
 		<div class="container">
-		 <a class="navbar-brand js-scroll-trigger" href="#page-top"><img src="assets/img/navbar-logo.svg" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fas fa-bars ml-1"></i></button>
+		 <a class="navbar-brand js-scroll-trigger" href="/#page-top"><img src="<%= image_path("navbar-logo.svg") %>" alt="" /></a><button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">Menu<i class="fa fa-bars ml-1"></i></button>
 			<div class="collapse navbar-collapse" id="navbarResponsive">
 				<ul class="navbar-nav text-uppercase ml-auto">
 					<li class="nav-item"><a class="nav-link js-scroll-trigger" href="/#services">Testimony</a></li>
@@ -56,8 +125,8 @@
 							</p>
 
 							<!-- Links -->
-							<%= link_to "My Account                          ", edit_user_registration_path, class: "fa fa-user dropdown-item" %>
-							<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "fa fa-power-off dropdown-item" %>
+							<a class="p-2 fa fa-user dropdown-item" href="/posts">My Account</a>
+							<%= link_to "Logout", destroy_user_session_path, :method => :delete, class: "p-2 fa fa-power-off dropdown-item" %>
 		
 			
 						</div>
@@ -76,6 +145,7 @@
 	<%= yield %>
 	<% else %>
 <div class="mastbg align-content-center p-5">
+<div class="page-section">
 <div class="container">
 		<div class="card">
 			<div class="card-header">User Dashboard</div>
@@ -85,13 +155,14 @@
 		</div>
 	</div>
 </div>
+</div>
     <% end%>
 <!-- Contact-->
 <section class="page-section" id="contact">
 	<div class="container">
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase">Contact Us</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h3 class="section-subheading text-muted">Submit any issues you have with the website.</h3>
 		</div>
 		<form id="contactForm" name="sentMessage" novalidate="novalidate">
 			<div class="row align-items-stretch mb-5">
@@ -128,20 +199,49 @@
         <footer class="footer py-4">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-lg-4 text-lg-left">Copyright © Your Website 2020</div>
+                    <div class="col-lg-4 text-lg-left">Copyright © pray-testify.com 2020</div>
                     <div class="col-lg-4 my-3 my-lg-0">
-                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+                        <a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-linkedin"></i></a>
                     </div>
                     <div class="col-lg-4 text-lg-right"><a class="mr-3" href="#!">Privacy Policy</a><a href="#!">Terms of Use</a></div>
                 </div>
             </div>
         </footer>
-		<!-- Bootstrap core JS-->
+		 <!-- Portfolio Modals--><!-- Modal 1-->
+        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="close-modal" data-dismiss="modal"><img src="<%= image_path("close-icon.svg") %>" alt="Close modal" /></div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+                            <div class="col-lg-8">
+                                <div class="modal-body">
+                                    <!-- Project Details Go Here-->
+                                    <h2 class="text-uppercase">Project Name</h2>
+                                    <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                                    <img class="img-fluid d-block mx-auto" src="assets/img/portfolio/01-full.jpg" alt="" />
+                                    <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                                    <ul class="list-inline">
+                                        <li>Date: January 2020</li>
+                                        <li>Client: Threads</li>
+                                        <li>Category: Illustration</li>
+                                    </ul>
+                                    <button class="btn btn-primary" data-dismiss="modal" type="button"><i class="fas fa-times mr-1"></i>Close Project</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+         <!-- Bootstrap core JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
         <!-- Third party plugin JS-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-        <!-- Contact form JS-->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+       <!-- Contact form JS-->
         <script src="assets/mail/jqBootstrapValidation.js"></script>
         <script src="assets/mail/contact_me.js"></script>
 </body>

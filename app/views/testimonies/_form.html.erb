@@ -11,12 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field p-3">
+ <p>Enter the testimony below:</p>
     <%= form.label :content %>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, class: "form-control", style: "height: 150px;" %>
   </div>
 <%= form.text_area :post_id, :value => @post.id, hidden: true %>
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions p-3">
+    <%= form.submit class: "btn btn-outline-primary" %>
   </div>
 <% end %>

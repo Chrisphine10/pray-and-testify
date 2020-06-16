@@ -3,10 +3,10 @@
 		<div class="container">
 			<div class="masthead-subheading">Welcome To Pray and Testify!</div>
 			<div class="masthead-heading text-uppercase">Let's pray together</div>
-			<a data-toggle="modal" data-target="#approvalModal" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="/">Submit a Prayer</a>
+			<a data-toggle="modal" data-target="#approvalModal" class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#">Submit a Prayer</a>
 		</div>
 	</header>
-<section class="page-section">
+<section class="pt-4 page-section">
 	<div class="container">
 		<!-- Modal -->
 	<div class="modal fade" id="approvalModal" tabindex="-1" role="dialog" aria-labelledby="approvalModalLabel" aria-hidden="true">
@@ -31,6 +31,7 @@
 </section>
 
 <!-- Services-->
+
 <section class="page-section" id="services">
 	<div class="container">
 		<div class="text-center">
@@ -38,12 +39,17 @@
 			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
 		</div>
 		<div class="row text-center">
+		<% @posts.each do |post| %>
 			<div class="col-md-4">
 				<div class="card">
-					<h4 class="my-3">Web Security</h4>
-					<p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+					<h4 class="my-3"><%= post.title %></h4>
+					Prayer: <p class="text-muted">	<%= post.content %></p>
+					<% if post.testimony %>
+				    Testimony: <p class="text-muted">	<%= post.testimony.content %></p>
+					<% end %>
 				</div>
 			</div>
+			<% end%>
 		</div>
 	</div>
 </section>
@@ -60,7 +66,7 @@
 				<div class="portfolio-item">
 					<a class="portfolio-link" data-toggle="modal" href="#portfolioModal1"
 						><div class="portfolio-hover">
-							<div class="portfolio-hover-content"><i class="fas fa-plus fa-3x"></i></div>
+							<div class="portfolio-hover-content"><i class="fa fa-plus fa-3x"></i></div>
 						</div>
 						<img class="img-fluid" src="<%= image_path('home.jpg') %>" alt="blog image        "/></a>
 					<div class="portfolio-caption">
@@ -115,36 +121,36 @@
 	<div class="container">
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase">Our Amazing Team</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h3 class="section-subheading text-muted">We have a great team that is always ready to help and work together with you.</h3>
 		</div>
 		<div class="row">
 			<div class="col-lg-4">
 				<div class="team-member">
-					<img class="mx-auto rounded-circle" src="<%= image_path('home.jpg') %>" alt="" />
-					<h4>Kay Garland</h4>
-					<p class="text-muted">Lead Designer</p>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="team-member">
-					<img class="mx-auto rounded-circle" src="<%= image_path('home.jpg') %>" alt="" />
-					<h4>Larry Parker</h4>
-					<p class="text-muted">Lead Marketer</p>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
-				</div>
-			</div>
-			<div class="col-lg-4">
-				<div class="team-member">
-					<img class="mx-auto rounded-circle" src="<%= image_path('home.jpg') %>" alt="" />
-					<h4>Diana Petersen</h4>
+					<img class="mx-auto rounded-circle" src="<%= image_path('coder.jpg') %>" alt="" />
+					<h4>Chrisphine Otieno</h4>
 					<p class="text-muted">Lead Developer</p>
-					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fab fa-linkedin-in"></i></a>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="team-member">
+					<img class="mx-auto rounded-circle" src="<%= image_path('coder.jpg') %>" alt="" />
+					<h4>Larry Parker</h4>
+					<p class="text-muted">Lead Intecessor</p>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-linkedin"></i></a>
+				</div>
+			</div>
+			<div class="col-lg-4">
+				<div class="team-member">
+					<img class="mx-auto rounded-circle" src="<%= image_path('coder.jpg') %>" alt="" />
+					<h4>Chrisphine Otieno</h4>
+					<p class="text-muted">Lead Developer</p>
+					<a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-twitter"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-facebook-f"></i></a><a class="btn btn-dark btn-social mx-2" href="#!"><i class="fa fa-linkedin"></i></a>
 				</div>
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.</p></div>
+			<div class="col-lg-8 mx-auto text-center"><p class="large text-muted">Get in touch with any of the team members in case you need help. The prayer team is here for you and you want to give your life to Christ, just contact the lead intercessor for more information. </p></div>
 		</div>
 	</div>
 </section>
