@@ -2,13 +2,13 @@ class CommentsController < ApplicationController
 	before_action :authenticate_user!
 
 	def create
-		@post = Post.find(params[:post_id])
+		@blog = Blog.find(params[:blog_id])
 		@comment = Comment.create(params[:comment].permit(:content))
 		@comment.user_id = current_user.id
-		@comment.post_id = @post.id
+		@comment.blog_id = @blog.id
 
 		if @comment.save
-		redirect_to post_path(@post)
+		redirect_to blog_path(@blog)
 		else
 		render 'new'
 		end

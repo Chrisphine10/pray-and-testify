@@ -1,6 +1,6 @@
-<%= form_for @post do |f| %>
+<%= form_for @blog do |f| %>
 <%= f.file_field :image %>
-<%= f.input :title %>
-<%= f.input :content %>
+<%= f.text_field :title %>
+<%= f.text_area :content %>
 <%= f.button :submit %>
 <% end %>

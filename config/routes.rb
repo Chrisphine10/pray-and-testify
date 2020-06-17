@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-  get 'blogs/new'
-  get 'blogs/show'
-  get 'blogs/edit'
+  resources :blogs do
+	resources :comments
+  end
   resources :devotions
   root 'home#index'
   devise_for :users
