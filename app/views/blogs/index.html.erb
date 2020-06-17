@@ -1,0 +1,19 @@
+<% if current_user %>
+<p> Hello
+<%= current_user.name %>
+ </p>
+<% end %>
+<% @blogs.each do |blog|%>
+<%= link_to image_tag(blog.image, height: '300', width: 'auto') %>
+<h2>
+<%= link_to blog.title, blog %>
+</h2>
+<div class="card">
+<div class="card-head">
+<p><%= blog.comments.count %>
+ Comments </p>
+<p> <%= blog.get_likes.size%>
+</div>
+Likes
+</div>
+<% end %>

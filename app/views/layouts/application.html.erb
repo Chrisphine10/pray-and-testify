@@ -116,7 +116,7 @@
 				<!-- Navigation -->
 					<li class="nav-item dropdown">
 					<a class="nav-link js-scroll-trigger nav-link dropdown-toggle" id="pagesDropdown" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-					 <%= current_user.name %>
+					 <%= current_user.name.partition(" ").first %>
 					</a>
 					<div class="dropdown-positioner">
 						<div class="dropdown-menu dropdown-left-manual" role="menu" aria-labelledby="pagesDropdown">

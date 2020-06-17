@@ -1,0 +1,22 @@
+<%= @blog.title %>
+<%= image_tag(@blog.image, alt: '', height: '300', width: 'auto') %>
+<%= @blog.title %>
+<%= @blog.content %>
+<%= @blog.user.name %>
+<%= @blog.get_upvotes.size %>
+  Likes
+<%= @blog.get_downvotes.size %>
+  Dislike
+<%= link_to "Like", like_blog_path(@blog), method: :get %>
+<%= link_to "Dislike", dislike_blog_path(@blog), method: :get %>
+
+ <%= comment_count= pluralize(@blog.comments.count, "Comment") %>
+  Comments
+  <% @comments.each do |comment| %>
+      <%= comment.user.name %>
+      <%= content= comment.content %>
+  <% end %>
+<%= render 'comments/form' %>
+<%= link_to "Edit", edit_blog_path %>
+<%= link_to "Destroy", blog_path, method: :delete, data: {confirm: "Are you sure?"} %>
+<%= link_to "Home", root_path %>
