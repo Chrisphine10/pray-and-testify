@@ -1,0 +1,17 @@
+<p>
+  <strong>Verse:</strong>
+  <%= @devotion.verse %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @devotion.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @devotion.content %>
+</p>
+
+<%= link_to 'Edit', edit_devotion_path(@devotion) %> |
+<%= link_to 'Back', devotions_path %>

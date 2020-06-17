@@ -1,0 +1,29 @@
+<h1>Devotions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Verse</th>
+      <th>Title</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devotions.each do |devotion| %>
+      <tr>
+        <td><%= devotion.verse %></td>
+        <td><%= devotion.title %></td>
+        <td><%= devotion.content %></td>
+        <td><%= link_to 'Show', devotion %></td>
+        <td><%= link_to 'Edit', edit_devotion_path(devotion) %></td>
+        <td><%= link_to 'Destroy', devotion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Devotion', new_devotion_path %>

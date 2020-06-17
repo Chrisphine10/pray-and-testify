@@ -40,15 +40,15 @@
 		</div>
 		<div class="row text-center">
 		<% @posts.each do |post| %>
+		<% if post.testimony %>
 			<div class="col-md-4">
 				<div class="card">
 					<h4 class="my-3"><%= post.title %></h4>
 					Prayer: <p class="text-muted">	<%= post.content %></p>
-					<% if post.testimony %>
 				    Testimony: <p class="text-muted">	<%= post.testimony.content %></p>
-					<% end %>
 				</div>
 			</div>
+				<% end %>
 			<% end%>
 		</div>
 	</div>
@@ -83,29 +83,34 @@
 	<div class="container">
 		<div class="text-center">
 			<h2 class="section-heading text-uppercase">Bible Devotions</h2>
-			<h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+			<h3 class="section-subheading text-muted">Get inspired and tranformed with daily Bible verses.</h3>
 		</div>
 		<ul class="timeline">
+			<% @devotions.each do |devotion, index| %>
+		   <% if (devotion.id % 2 == 0) then %> 
 			<li>
 				<div class="timeline-image"><img class="rounded-circle img-fluid" src="<%= image_path('about/3.jpg') %>" alt="" /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>2009-2011</h4>
-						<h4 class="subheading">Our Humble Beginnings</h4>
+						<h4><%= devotion.verse %></h4>
+						<h4 class="subheading"><%= devotion.title %></h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted"><%= devotion.content %></p></div>
 				</div>
 			</li>
+			<% else %>
 			<li class="timeline-inverted">
-				<div class="timeline-image"><img class="rounded-circle img-fluid" src="<%= image_path('about/2.jpg') %>" alt="" /></div>
+				<div class="timeline-image"><img class="rounded-circle img-fluid" src="<%= image_path('about/3.jpg') %>" alt="" /></div>
 				<div class="timeline-panel">
 					<div class="timeline-heading">
-						<h4>March 2011</h4>
-						<h4 class="subheading">An Agency is Born</h4>
+						<h4><%= devotion.verse %></h4>
+						<h4 class="subheading"><%= devotion.title %></h4>
 					</div>
-					<div class="timeline-body"><p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p></div>
+					<div class="timeline-body"><p class="text-muted"><%= devotion.content %></p></div>
 				</div>
 			</li>
+		    <% end %>
+			<% end %>
 			<li class="timeline-inverted">
 				<div class="timeline-image">
 		

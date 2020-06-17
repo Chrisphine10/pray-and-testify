@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :devotions
   root 'home#index'
   devise_for :users
   resources :posts do 
